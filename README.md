@@ -2,6 +2,12 @@
 
 让 DeepSeek Harness Web GUI 可在局域网内被其他设备访问的 DSH 插件（可信内网专用）。
 
+[![npm version](https://img.shields.io/npm/v/dsh-lan-access)](https://www.npmjs.com/package/dsh-lan-access)
+[![License](https://img.shields.io/npm/l/dsh-lan-access)](LICENSE)
+
+- **npm**: https://www.npmjs.com/package/dsh-lan-access
+- **GitHub**: https://github.com/Leon0555/dsh-lan-access
+
 ## 功能
 
 1. **局域网绑定**：把 webserver 的 `host` 改为 `0.0.0.0`，手机/其他电脑可通过
@@ -11,13 +17,14 @@
    （项目/会话列表加载不出、无法添加工作区）。本插件向每次返回的 index.html
    注入兜底实现，任何设备的浏览器访问都正常。
 
-## 安装
+## 安装（从 npm）
 
 ```sh
 dsh plugin --profile web add dsh-lan-access
-# 本地开发安装：
-# dsh plugin --profile web add file:/path/to/dsh-lan-access
 ```
+
+> 需要 pnpm（`npm i -g pnpm`）。本地开发安装可用
+> `dsh plugin --profile web add file:/path/to/dsh-lan-access`。
 
 安装后重启服务生效：
 
@@ -47,3 +54,7 @@ dsh plugin --profile web remove dsh-lan-access
 - polyfill：代码行注入 `webServer`，用官方预留的 `tapIndex` 钩子向
   index.html `<head>` 注入内联脚本；带幂等守卫，非安全上下文才生效，
   本机 localhost 访问不受影响。
+
+## 许可证
+
+MIT © Leon0555
