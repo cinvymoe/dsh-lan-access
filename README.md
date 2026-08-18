@@ -11,7 +11,7 @@
 ## 功能
 
 1. **局域网绑定**：把 webserver 的 `host` 改为 `0.0.0.0`，手机/其他电脑可通过
-   `http://<Mac局域网IP>:3080` 访问（查 IP：`ipconfig getifaddr en0`）。
+   `http://<运行DSH设备的IP>:3080` 访问（查 IP：`ipconfig getifaddr en0`）。
 2. **crypto.randomUUID polyfill**：浏览器只在安全上下文（HTTPS/localhost）暴露
    `crypto.randomUUID`，局域网明文 HTTP 下不存在，会导致 DSH 的 RPC 全部失败
    （项目/会话列表加载不出、无法添加工作区）。本插件向每次返回的 index.html
