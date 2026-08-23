@@ -15,7 +15,18 @@
 2. **crypto.randomUUID polyfill**：浏览器只在安全上下文（HTTPS/localhost）暴露
    `crypto.randomUUID`，局域网明文 HTTP 下不存在，会导致 DSH 的 RPC 全部失败
    （项目/会话列表加载不出、无法添加工作区）。本插件向每次返回的 index.html
-   注入兜底实现，任何设备的浏览器访问都正常。
+   注入兜底实现（标准 UUID v4，`crypto.getRandomValues` 生成），任何设备的
+   浏览器访问都正常。
+3. **手机/窄屏自动适配**（v0.1.2+）：屏幕宽度 ≤820px 时自动切换为紧凑移动排版，
+   无需任何配置。包括：
+   - 字号压缩与排版收紧（消息流、代码块、标题层级）
+   - 输入框 `font-size:16px`，规避 iOS 聚焦自动放大
+   - 按钮加大触控目标、去除点击延迟（`touch-action:manipulation`）
+   - 弹层/对话框全屏化（100dvh + 安全区适配），模型选择等浮层固定定位防遮挡
+   - 深色/浅色主题下均生效（跟随 DSH 本身）
+
+   > 适配 CSS 移植自 [dsh-lan-gate](https://github.com/hchao3335-maker/dsh-lan-gate)
+   > （MIT License），取其窄屏兜底层，仅保留排版适配，不含其网关/审批功能。
 
 ## 安装（从 npm）
 
@@ -88,6 +99,9 @@ DSH 把"配置平面"——**设置页、模型/Provider 管理、凭据、Agent
 - polyfill：代码行注入 `webServer`，用官方预留的 `tapIndex` 钩子向
   index.html `<head>` 注入内联脚本；带幂等守卫，非安全上下文才生效，
   本机 localhost 访问不受影响。
+- 手机适配：同一 `tapIndex` 注入 `<style>`（`@media (max-width:820px)` 兜底层，
+  选择器针对 DSH 的 `data-slot` / `data-chat-flow` / `data-composer-card` /
+  `role="dialog"` 等稳定结构属性）。
 
 ## 许可证
 
