@@ -1,6 +1,7 @@
 # dsh-lan-access
 
 让 DeepSeek Harness Web GUI 可在局域网内被其他设备访问的 DSH 插件（可信内网专用）。
+同一局域网下，手机/平板/电脑打开浏览器即可直接访问你某台设备上的 DSH——无需 SSH、无需内网穿透，npm 一键安装。
 
 [![npm version](https://img.shields.io/npm/v/dsh-lan-access)](https://www.npmjs.com/package/dsh-lan-access)
 [![License](https://img.shields.io/npm/l/dsh-lan-access)](LICENSE)
@@ -27,6 +28,9 @@
 
    > 适配 CSS 移植自 [dsh-lan-gate](https://github.com/hchao3335-maker/dsh-lan-gate)
    > （MIT License），取其窄屏兜底层，仅保留排版适配，不含其网关/审批功能。
+
+## 安装（DSH自己安装）
+把这个项目的链接贴给DSH，让它自己安装即可。
 
 ## 安装（从 npm）
 
