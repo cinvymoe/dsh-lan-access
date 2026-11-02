@@ -1,3 +1,10 @@
+> [!WARNING]
+> **暂停使用 / Temporarily unavailable**
+>
+> 已发布的插件版本与新版 DSH 的监听地址限制不兼容，可能导致 Web 服务启动失败。请暂时不要安装或使用；已安装用户如遇启动失败，请移除插件并检查 webserver 配置。
+>
+> Published versions are incompatible with recent DSH webserver host validation and may prevent startup. Please stop using this plugin for now.
+
 # dsh-lan-access
 
 让 DeepSeek Harness Web GUI 可在局域网内被其他设备访问的 DSH 插件（可信内网专用）。
